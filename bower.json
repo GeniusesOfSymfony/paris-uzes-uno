@@ -1,0 +1,17 @@
+{
+  "name": "Uzes Uno Scoring",
+  "version": "0.0.1",
+  "authors": [
+    "prophet777 <johann_27@hotmail.fr>"
+  ],
+  "description": "Scoring de parties de UNO !",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "angularjs": "*",
+    "angularfire": "~0.7.1",
+    "angular-route": "~1.2.15"
+  }
+}

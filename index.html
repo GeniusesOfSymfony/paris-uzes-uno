@@ -1,0 +1,79 @@
+<html lang="fr" ng-app="uzesApp" ng-controller="gameCtrl" ng-init="init()">
+    <head>
+        <title>Uno scoring bitches !</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Uno scoring" />
+        <meta name="author" content="uno, uzes" />
+
+        <title>UNO SCORING 0.0.1</title>
+
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="bower_components/angular/angular-csp.css" rel="stylesheet" type="text/css" media="all" />
+        <style type="text/css">
+            body { padding-bottom: 70px; }
+            .navbar{border-radius: 0;}
+            table > th { width:  50px;}
+            .readonly{
+                text-decoration: line-through;
+            }
+        </style>
+
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- AngularJS -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- App -->
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="app/rulesData.js"></script>
+        <script type="text/javascript" src="app/rules.js"></script>
+        <script type="text/javascript" src="app/player.js"></script>
+        <script type="text/javascript" src="app/round.js"></script>
+        <script type="text/javascript" src="app/rank.js"></script>
+        <script type="text/javascript" src="app/game.js"></script>
+        <script type="text/javascript">
+            function DisplayTime(){
+                if (!document.all && !document.getElementById)
+                    return
+                timeElement=document.getElementById? document.getElementById("curTime"): document.all.tick2
+                var CurrentDate=new Date()
+                var hours=CurrentDate.getHours()
+                var minutes=CurrentDate.getMinutes()
+                var seconds=CurrentDate.getSeconds()
+                var DayNight="PM"
+                if (hours<12) DayNight="AM";
+                if (hours>12) hours=hours-12;
+                if (hours==0) hours=12;
+                if (minutes<=9) minutes="0"+minutes;
+                if (seconds<=9) seconds="0"+seconds;
+                var currentTime=hours+":"+minutes+":"+seconds+" "+DayNight;
+                timeElement.innerHTML=currentTime;
+                setTimeout("DisplayTime()",1000)
+            }
+            window.onload=DisplayTime
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <span class="navbar-brand">UNO</span>
+                    <span id="curTime" class="navbar-brand"></span>
+                </div>
+            </div>
+        </nav>
+
+        <div ng-controller="playerCtrl" ng-init="init()">
+            <div ng-controller="roundCtrl">
+                <div ng-show="game" ng-include src="'partials/gameBody.html'"></div>
+            </div>
+        </div>
+    </body>
+</html>

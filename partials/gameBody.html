@@ -1,0 +1,62 @@
+<div class="row">
+    <div ng-include src="'partials/gameController.html'"></div>
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table text-center table-bordered table-striped table-fixed-header">
+                <thead>
+                    <tr>
+                        <th class="text-center" ng-repeat="player in players">
+                            <span>
+                                {{ player.name }}
+                                <div class="active" ng-repeat="rank in ranks">
+                                    <span ng-if="rank.name == player.name" class="label label-default">{{ $index + 1 }}</span>
+                                </div>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr ng-repeat="(roundPosition, round) in rounds">
+                        <td ng-repeat="(scorePosition, score) in round track by $index ">
+                            <span ng-class="{readonly: roundPosition < players[scorePosition].lastLolRound}">
+                                {{ score }}
+                                <span ng-if="rulesMap[roundPosition][scorePosition]">
+                                    <span class="label label-danger" ng-show="rulesMap[roundPosition][scorePosition].name == '118'">
+                                        {{ rulesMap[roundPosition][scorePosition].factorSign }}
+                                        {{ rulesMap[roundPosition][scorePosition].factorScore }}
+                                    </span>
+                                    <span class="label label-success" ng-show="rulesMap[roundPosition][scorePosition].name == '218'">
+                                        {{ rulesMap[roundPosition][scorePosition].factorSign }}
+                                        {{ rulesMap[roundPosition][scorePosition].factorScore }}
+                                    </span>
+                                    <span class="label label-success" ng-show="rulesMap[roundPosition][scorePosition].name == '666'">
+                                        - {{ score }}
+                                    </span>
+                            </span>
+                            <span ng-repeat="lol in lolMap|filter:{round : roundPosition - 1, score : scorePosition}">
+                                <span ng-if="$index == 0" class="label label-primary">LOL</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td ng-repeat="player in players">
+                            <input type="number" min="0" ng-model="player.score">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info" ng-repeat="player in players">
+                            <strong>{{ player.totalScore }}</strong>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="{{ players.length }}">
+                            <a href="#" ng-click="addRound()" type="submit" class="btn btn-primary">Enregistrer</a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
