@@ -1,5 +1,3 @@
-
-
 app.controller('roundCtrl', function($scope, roundFactory, rankFactory){
     $scope.addRound = function(){
         roundFactory.addRound(roundFactory.createRound());

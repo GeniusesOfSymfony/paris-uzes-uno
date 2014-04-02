@@ -32,12 +32,23 @@
 
         <!-- App -->
         <script type="text/javascript" src="app.js"></script>
-        <script type="text/javascript" src="app/rulesData.js"></script>
-        <script type="text/javascript" src="app/rules.js"></script>
-        <script type="text/javascript" src="app/player.js"></script>
-        <script type="text/javascript" src="app/round.js"></script>
-        <script type="text/javascript" src="app/rank.js"></script>
-        <script type="text/javascript" src="app/game.js"></script>
+        <script type="text/javascript" src="src/rulesData.js"></script>
+
+        <script type="text/javascript" src="src/model/rules.js"></script>
+
+        <script type="text/javascript" src="src/model/player.js"></script>
+        <script type="text/javascript" src="src/controller/player.js"></script>
+
+        <script type="text/javascript" src="src/model/round.js"></script>
+        <script type="text/javascript" src="src/controller/round.js"></script>
+
+
+        <script type="text/javascript" src="src/model/rank.js"></script>
+        <script type="text/javascript" src="src/controller/rank.js"></script>
+
+        <script type="text/javascript" src="src/model/game.js"></script>
+        <script type="text/javascript" src="src/controller/game.js"></script>
+
         <script type="text/javascript">
             function DisplayTime(){
                 if (!document.all && !document.getElementById)
@@ -72,7 +83,7 @@
 
         <div ng-controller="playerCtrl" ng-init="init()">
             <div ng-controller="roundCtrl">
-                <div ng-show="game" ng-include src="'partials/gameBody.html'"></div>
+                <div ng-show="game" ng-include src="'src/view/gameBody.html'"></div>
             </div>
         </div>
     </body>
