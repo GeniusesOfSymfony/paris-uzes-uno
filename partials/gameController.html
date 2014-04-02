@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="handpoint">Point en main</label>
-                        <input type="number" id="handpoint" ng-model="lol.handPoint">
+                        <input type="number" min="0" id="handpoint" ng-model="lol.handPoint">
                     </div>
 
                     <button ng-click="assignLol(lol);isLolOpen = !isLolOpen" class="btn btn-primary">OK</button>

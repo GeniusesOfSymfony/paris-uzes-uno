@@ -1,12 +1,7 @@
 app.factory('roundFactory', function(playerFactory, rulesFactory){
     var factory = {};
 
-    factory.rounds = [
-        [0, 200, 300],
-        [0, 12, 400],
-        [100, 48, 0]
-    ];
-
+    factory.rounds = [];
     factory.lolMap = [];
     factory.rulesMap = {};
 
@@ -15,8 +10,10 @@ app.factory('roundFactory', function(playerFactory, rulesFactory){
     };
 
     factory.registerRule = function(rule, roundPosition, scorePosition){
-        console.log(rule);
-        this.rulesMap[roundPosition] = {};
+        if(!this.rulesMap[roundPosition]){
+            this.rulesMap[roundPosition] = {};
+        }
+
         this.rulesMap[roundPosition][scorePosition] = rule;
     };
 

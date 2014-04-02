@@ -1,26 +1,7 @@
 app.factory('playerFactory', function(){
     var factory = {};
 
-    factory.players = [
-        {
-            name: 'Johann',
-            totalScore: 100,
-            lastLolRound: -1,
-            isLol: false
-        },
-        {
-            name: 'Sebastien',
-            totalScore: 260,
-            lastLolRound: -1,
-            isLol: false
-        },
-        {
-            name: 'Yannick',
-            totalScore: 700,
-            lastLolRound: -1,
-            isLol: false
-        }
-    ];
+    factory.players = [];
 
     factory.lastLolRound = null;
 
