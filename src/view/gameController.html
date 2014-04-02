@@ -1,0 +1,52 @@
+<div class="row-fluid">
+    <fieldset>
+        <form class="form-horizontal" role="form">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Joueur</label>
+                    <div class="col-sm-10">
+                        <input placeholder="John David" ng-model="player.name" type="text" class="form-control" name="name" id="name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalScore" class="col-sm-2 control-label">Score</label>
+                    <div class="col-sm-10">
+                        <input  placeholder="Over 9000" class="form-control" ng-model="player.totalScore" type="number" name="totalScore" id="totalScore" value="0" min="0">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <button ng-disabled="!isPlayerValid(player)" ng-click="addPlayer(player)" type="submit" class="btn btn-primary">Ajouter un joueur</button>
+                <button ng-click="getAveragePlayers(player)" class="btn btn-primary">Calculer la moyenne</button>
+                <button ng-click="isLolOpen = !isLolOpen" class="btn btn-primary">LoL</button>
+            </div>
+        </form>
+        <form role="form">
+            <div class="col-md-3">
+                <div ng-show="isLolOpen">
+                    <div class="form-group">
+                        <label for="owner">Proriétaire du LoL</label>
+
+                        <select ng-model="lol.owner" name="owner" id="owner">
+                            <option value="{{ player.name }}" class="form-control" ng-repeat="player in players">{{ player.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="target">Cible du LoL</label>
+                        <select ng-model="lol.target" name="target" id="target">
+                            <option value="{{ player.name }}" ng-repeat="player in players">{{ player.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="handpoint">Point en main</label>
+                        <input type="number" min="0" id="handpoint" ng-model="lol.handPoint">
+                    </div>
+
+                    <button ng-click="assignLol(lol);isLolOpen = !isLolOpen" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>
