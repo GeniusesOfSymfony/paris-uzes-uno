@@ -1,0 +1,6 @@
+body { padding-bottom: 70px; }
+.navbar{border-radius: 0;}
+table > th { width:  50px;}
+.readonly{
+    text-decoration: line-through;
+}
