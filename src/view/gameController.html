@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="totalScore" class="col-sm-2 control-label">Score</label>
                     <div class="col-sm-10">
-                        <input  placeholder="Over 9000" class="form-control" ng-model="player.totalScore" type="number" name="totalScore" id="totalScore" value="0" min="0">
+                        <input placeholder="Over 9000" ng-init="player.totalScore = 0" class="form-control" ng-model="player.totalScore" type="number" name="totalScore" id="totalScore" value="0" min="0">
                     </div>
                 </div>
             </div>
