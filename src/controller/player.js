@@ -50,7 +50,7 @@ app.factory('playerFactory', function(){
     };
 
     factory.createPlayer = function(player){
-        player.score = 0;
+        player.score = null;
         var newPlayer = angular.copy(player);
 
         player.name = null;

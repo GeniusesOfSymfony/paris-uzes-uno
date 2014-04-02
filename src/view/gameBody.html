@@ -17,7 +17,7 @@
                 </thead>
                 <tbody >
                     <tr ng-repeat="(roundPosition, round) in rounds">
-                        <td ng-repeat="(scorePosition, score) in round track by $index ">
+                        <td ng-repeat="(scorePosition, score) in round track by $index">
                             <span ng-class="{readonly: roundPosition < players[scorePosition].lastLolRound}">
                                 {{ score }}
                                 <span ng-if="rulesMap[roundPosition][scorePosition]">
@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td ng-repeat="player in players">
-                            <input type="number" min="0" ng-model="player.score">
+                            <input type="number" ng-init="player.score = null" min="0" ng-model="player.score">
                         </td>
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot>
+                <tfoot ng-if="players.length > 0">
                     <tr>
                         <td colspan="{{ players.length }}">
                             <a href="#" ng-click="addRound()" type="submit" class="btn btn-primary">Enregistrer le round</a>

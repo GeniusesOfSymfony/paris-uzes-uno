@@ -78,7 +78,7 @@ app.factory('roundFactory', function(playerFactory, rulesFactory){
                 }
             }
 
-            player.score = 0;
+            player.score = null;
             player.isLol = false;
 
             playerFactory.update([player]);
