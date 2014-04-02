@@ -1,5 +1,4 @@
-
-app.controller('gameCtrl', function($scope, roundFactory, gameFactory, playerFactory, rankFactory){
+app.controller('gameCtrl', function($scope, firebase, $firebase, roundFactory, gameFactory, playerFactory, rankFactory){
     $scope.init = function(){
         $scope.game = gameFactory.getGame();
         $scope.rounds = roundFactory.getRounds();
@@ -29,7 +28,7 @@ app.controller('gameCtrl', function($scope, roundFactory, gameFactory, playerFac
             backupPlayers = { targetPlayer: angular.copy(targetPlayer), ownerPlayer: angular.copy(ownerPlayer) };
 
         if(ownerPlayer == targetPlayer){
-            alert('Alert aux gogoles les enfants !');
+            alert('Alerte aux gogoles les enfants !');
             return;
         }
 
@@ -45,5 +44,33 @@ app.controller('gameCtrl', function($scope, roundFactory, gameFactory, playerFac
         lol.handPoint = null;
 
         $scope.players = playerFactory.getPlayers();
+    };
+
+    $scope.pushData = function($event){
+        var $button = $($event.target);
+        $button.button('loading');
+
+        $scope.game = gameFactory.getGame();
+        $scope.rounds = roundFactory.getRounds();
+        $scope.players = playerFactory.getPlayers();
+        $scope.ranks = rankFactory.getRanks();
+        $scope.lolMap = roundFactory.getLolMap();
+
+        var game = {
+            date: new Date(),
+            rounds: roundFactory.getRounds(),
+            players: playerFactory.getPlayers(),
+            ranks: rankFactory.getRanks(),
+            map: {
+                lol: roundFactory.getLolMap(),
+                rules: roundFactory.getRulesMap()
+            }
+        };
+
+        $firebase(new Firebase(firebase)).$add(game).then(function(){
+            $button.button('reset');
+            $button.remove();
+            alert('Information sauvegarder sur le serveur !');
+        });
     };
 });

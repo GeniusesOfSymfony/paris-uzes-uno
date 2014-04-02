@@ -52,7 +52,8 @@
                 <tfoot>
                     <tr>
                         <td colspan="{{ players.length }}">
-                            <a href="#" ng-click="addRound()" type="submit" class="btn btn-primary">Enregistrer</a>
+                            <a href="#" ng-click="addRound()" type="submit" class="btn btn-primary">Enregistrer le round</a>
+                            <a href="#" ng-click="pushData($event)" class="btn btn-primary">Envoyer les données aux serveurs</a>
                         </td>
                     </tr>
                 </tfoot>
