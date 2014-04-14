@@ -2,11 +2,11 @@ function DisplayTime(){
     if (!document.all && !document.getElementById)
         return
     timeElement=document.getElementById? document.getElementById("curTime"): document.all.tick2
-    var CurrentDate=new Date()
-    var hours=CurrentDate.getHours()
-    var minutes=CurrentDate.getMinutes()
-    var seconds=CurrentDate.getSeconds()
-    var DayNight="PM"
+    var CurrentDate=new Date();
+    var hours=CurrentDate.getHours();
+    var minutes=CurrentDate.getMinutes();
+    var seconds=CurrentDate.getSeconds();
+    var DayNight="PM";
     if (hours<12) DayNight="AM";
     if (hours>12) hours=hours-12;
     if (hours==0) hours=12;
@@ -16,4 +16,4 @@ function DisplayTime(){
     timeElement.innerHTML=currentTime;
     setTimeout("DisplayTime()",1000)
 }
-window.onload=DisplayTime
+window.onload=DisplayTime;
