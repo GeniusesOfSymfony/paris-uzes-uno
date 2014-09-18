@@ -70,7 +70,7 @@ app.controller('gameCtrl', function($scope, firebase, $firebase, roundFactory, g
         $firebase(new Firebase(firebase)).$add(game).then(function(){
             $button.button('reset');
             $button.remove();
-            alert('Information sauvegarder sur le serveur !');
+            alert('Information sauvegardé sur le serveur !');
         });
     };
 });
