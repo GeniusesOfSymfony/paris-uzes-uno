@@ -74,7 +74,7 @@ app.factory('roundFactory', function(playerFactory, rulesFactory){
                         },
                         _this.rounds.length, round.length - 1);
 
-                    alert(player.name + ' à subit la règle ' + rule.name);
+                    alert(player.name + ' a subit la règle ' + rule.name);
                 }
             }
 
