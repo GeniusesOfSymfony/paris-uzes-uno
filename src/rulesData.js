@@ -44,3 +44,9 @@ var rules = {
         }
     ]
 };
+
+var customRules = [
+    'Règle 1',
+    'Règle 2',
+    'Règle 3'
+];
