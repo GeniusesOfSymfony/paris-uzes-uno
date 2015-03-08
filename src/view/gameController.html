@@ -20,6 +20,7 @@
                 <button ng-disabled="!isPlayerValid(player)" ng-click="addPlayer(player)" type="submit" class="btn btn-primary">Ajouter un joueur</button>
                 <button ng-click="getAveragePlayers(player)" class="btn btn-primary">Calculer la moyenne</button>
                 <button ng-click="isLolOpen = !isLolOpen" class="btn btn-primary">LoL</button>
+                <button ng-disabled="customRule" ng-click="pickCustomRule()" class="btn btn-primary">Tirer une règle au hasard</button>
             </div>
         </form>
         <form role="form">

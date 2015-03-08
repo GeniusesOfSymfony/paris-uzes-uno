@@ -10,7 +10,8 @@ var rules = {
                 return {
                     factorScore: 100,
                     factorType: 'addition',
-                    factorSign: '+'
+                    factorSign: '+',
+                    audio: 'src/assets/audio/118218.mp3'
                 }
             }
         },
@@ -24,7 +25,8 @@ var rules = {
                 return {
                     factorScore: 100,
                     factorType: 'soustraction',
-                    factorSign: '-'
+                    factorSign: '-',
+                    audio: 'src/assets/audio/118218.mp3'
                 }
             }
         },
@@ -38,9 +40,17 @@ var rules = {
                 return {
                     factorScore: 0,
                     factorType: 'definition',
-                    factorSign: ''
+                    factorSign: '',
+                    audio: 'src/assets/audio/666.mp3'
                 }
             }
         }
     ]
 };
+
+var customRules = [
+    'Les cartes noires inversent le sens du jeu.',
+    'Quand un 0 est posé, les 2 joueurs concernés échangent aussi leurs places autour de la table.',
+    'Quand un +4 est posé, les joueurs situés à gauche et à droite jouent à chifoumi. Le perdant prend les cartes.',
+    'On peut contrer un 6 avec un 9, et inversement.'
+];
