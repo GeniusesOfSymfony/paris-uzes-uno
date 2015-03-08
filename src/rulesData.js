@@ -10,7 +10,8 @@ var rules = {
                 return {
                     factorScore: 100,
                     factorType: 'addition',
-                    factorSign: '+'
+                    factorSign: '+',
+                    audio: 'src/assets/audio/118218.mp3'
                 }
             }
         },
@@ -24,7 +25,8 @@ var rules = {
                 return {
                     factorScore: 100,
                     factorType: 'soustraction',
-                    factorSign: '-'
+                    factorSign: '-',
+                    audio: 'src/assets/audio/118218.mp3'
                 }
             }
         },
@@ -38,7 +40,8 @@ var rules = {
                 return {
                     factorScore: 0,
                     factorType: 'definition',
-                    factorSign: ''
+                    factorSign: '',
+                    audio: 'src/assets/audio/666.mp3'
                 }
             }
         }

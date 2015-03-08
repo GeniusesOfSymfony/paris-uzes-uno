@@ -67,6 +67,12 @@ app.factory('roundFactory', function(playerFactory, rulesFactory){
                             break;
                     }
 
+                    if (data.audio) {
+                        var audio = new Audio();
+                        audio.src = data.audio;
+                        audio.play();
+                    }
+
                     _this.registerRule({
                             name: rule.name,
                             factorSign: data.factorSign,
