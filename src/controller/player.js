@@ -9,7 +9,7 @@ app.controller('playerCtrl', function($scope, playerFactory){
     };
 
     $scope.isPlayerValid = function(player){
-        return playerFactory.isValid(player);
+        return playerFactory.isValid(player) && null === playerFactory.getNamedPlayer(player.name);
     };
 
     $scope.getAveragePlayers = function(player){

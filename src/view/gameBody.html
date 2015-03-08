@@ -1,5 +1,6 @@
 <div ng-include src="'src/view/gameController.html'"></div>
 <div class="col-md-12">
+    <div ng-if="customRule" class="alert alert-warning">{{ customRule }}</div>
     <div class="table-reswwwponsive">
         <table class="table text-center table-bordered table-striped table-fixed-header">
             <thead>
@@ -31,6 +32,7 @@
                                 <span class="label label-success" ng-show="rulesMap[roundPosition][scorePosition].name == '666'">
                                     - {{ score }}
                                 </span>
+                            </span>
                         </span>
                         <span ng-repeat="lol in lolMap|filter:{round : roundPosition - 1, score : scorePosition}">
                             <span ng-if="$index == 0" class="label label-primary">LOL</span>

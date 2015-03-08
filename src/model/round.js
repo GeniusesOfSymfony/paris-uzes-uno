@@ -67,6 +67,12 @@ app.factory('roundFactory', function(playerFactory, rulesFactory){
                             break;
                     }
 
+                    if (data.audio) {
+                        var audio = new Audio();
+                        audio.src = data.audio;
+                        audio.play();
+                    }
+
                     _this.registerRule({
                             name: rule.name,
                             factorSign: data.factorSign,
@@ -74,7 +80,7 @@ app.factory('roundFactory', function(playerFactory, rulesFactory){
                         },
                         _this.rounds.length, round.length - 1);
 
-                    alert(player.name + ' à subit la règle ' + rule.name);
+                    alert(player.name + ' a subit la règle ' + rule.name);
                 }
             }
 
